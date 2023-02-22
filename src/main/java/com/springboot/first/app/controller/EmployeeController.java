@@ -1,7 +1,10 @@
 package com.springboot.first.app.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,5 +32,12 @@ public class EmployeeController {
 		return new ResponseEntity<Employee>(employeeService.saveEmployee(employee), 
 				HttpStatus.CREATED);
 	}
+	
+	//Rest API to get list of all employees (Get call example)
+	@GetMapping("/getAllEmployees")
+	public List<Employee> getAllEmployees(){
+		return employeeService.getAllEmployees();
+	}
+	
 
 }
